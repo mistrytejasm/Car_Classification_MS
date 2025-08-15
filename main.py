@@ -139,15 +139,14 @@ async def get_classes():
 
 @app.exception_handler(404)
 async def not_found_handler(request: Request, exc: HTTPException):
-    """Handle 404 errors - serve frontend for non-API routes"""
     if request.url.path.startswith("/api/"):
         return JSONResponse(
             status_code=404,
             content={"details": "API endPoint Not Found"}
         )
     else:
-        # For non-API routes, serve the main app (SPA behavior)
-        return await serve_frontend
+        # Correctly serve the SPA front page for non-API routes
+        return await serve_frontend()
     
 @app.on_event("startup")
 async def startup_event():
