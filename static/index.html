@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car AI - Vehicle Recognition</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <!-- <div class="logo">
+                <span class="car-icon">🚗</span>
+                <h1>Car AI</h1>
+            </div> -->
+            <p class="subtitle">Maruti Suzuki Recognition System</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Upload State -->
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <h2>Drop Image Here</h2>
+                    <p>or click to select</p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <!-- Preview State -->
+            <div class="preview-zone" id="previewZone" style="display: none;">
+                <div class="image-container">
+                    <img id="imagePreview" alt="Preview">
+                </div>
+                <button id="classifyBtn" class="classify-btn">Analyze Image</button>
+            </div>
+
+            <!-- Processing State -->
+            <div class="processing-zone" id="processingZone" style="display: none;">
+                <div class="loader"></div>
+                <p>Analyzing image...</p>
+            </div>
+
+            <!-- Results State -->
+            <div class="results-zone" id="resultsZone" style="display: none;">
+                <!-- Image and Results Side by Side -->
+                <div class="results-container">
+                    <div class="image-section">
+                        <img id="resultImage" alt="Analyzed Image">
+                    </div>
+
+                    <div class="results-section">
+                        <div class="prediction-box">
+                            <div class="prediction-label">Prediction</div>
+                            <div class="prediction-value" id="predictionValue">-</div>
+                            <div class="confidence-value" id="confidenceValue">-</div>
+                        </div>
+
+                        <!-- This container should have the correct ID -->
+                        <div class="probabilities-box" id="probabilitiesBox">
+                            <div class="probabilities-title">Confidence Breakdown</div>
+                            <div class="probabilities-list" id="probabilitiesList"></div>
+                        </div>
+
+                        <button id="newImageBtn" class="new-image-btn">New Image</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-zone" id="errorZone" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <h2>Something went wrong</h2>
+                <p id="errorMessage">Please try again</p>
+                <button id="retryBtn" class="retry-btn">Try Again</button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+
+</html>
