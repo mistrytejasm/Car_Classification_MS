@@ -27,6 +27,12 @@ body {
     color: white;
     flex-shrink: 0;
 }
+.note {
+    font-size: 0.9rem;
+    color: #d9534f; /* red warning */
+    margin-top: 0.3rem;
+    text-align: center;
+}
 
 .logo {
     display: flex;
