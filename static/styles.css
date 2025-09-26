@@ -29,7 +29,7 @@ body {
 }
 .note {
     font-size: 0.9rem;
-    color: #d9534f; /* red warning */
+    color: #ffffff; /* red warning */
     margin-top: 0.3rem;
     text-align: center;
 }
