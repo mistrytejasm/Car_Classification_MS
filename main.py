@@ -151,11 +151,12 @@ async def not_found_handler(request: Request, exc: HTTPException):
 @app.on_event("startup")
 async def startup_event():
     """Application startup"""
+    port = int(os.environ.get("PORT", 8000))  # match uvicorn below
     logger.info("Car Classification App starting up...")
     logger.info(f"Serving static files from: {Path('static').absolute()}")
     logger.info(f"Model status: {'Loaded' if classifier else 'Not loaded'}")
-    logger.info(f"Access the app at: http://localhost:8000")
+    logger.info(f"Access the app at: http://0.0.0.0:{port}")
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 8000))  # Render will inject PORT
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
